@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabrice Djimé — Auteur SF</title>
+  <meta name="description" content="Fabrice Djimé, auteur de science-fiction dystopique. Découvrez Le Nouveau Léviathan, trilogie hard SF set en 2065.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* ── HERO PRINCIPAL ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 2rem 4rem;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(200,51,74,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(58,122,138,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    #hero-img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      margin: 0 auto 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      color: var(--rouge);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      color: var(--blanc);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 2px 40px rgba(200,51,74,0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+      letter-spacing: 4px;
+      color: var(--texte-dim);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-quote {
+      font-style: italic;
+      color: var(--texte-pale);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-quote cite {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--texte-dim);
+      font-style: normal;
+      margin-top: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section.pub-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    section.pub-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--rouge);
+      margin-bottom: 2rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--bleu-nuit);
+      padding-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    /* SYNOPSIS */
+    .synopsis-text {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* THEMES GRID */
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    a.theme-item {
+      border: 1px solid var(--rouge);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      color: var(--texte);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+    }
+
+    a.theme-item:hover {
+      background: var(--rouge);
+      color: var(--noir);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px var(--rouge-glow);
+    }
+
+    /* ATELIER CARDS */
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .atelier-card {
+      border: 1px solid var(--bleu-nuit);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--texte);
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .atelier-card:hover {
+      border-color: var(--rouge);
+      background: var(--rouge-dim);
+    }
+
+    .atelier-card .card-date {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--texte-dim);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .atelier-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--blanc);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .atelier-card p {
+      font-size: 0.9rem;
+      color: var(--texte-dim);
+      line-height: 1.6;
+    }
+
+    /* AUTEUR */
+    #auteur-section { text-align: center; }
+
+    .avatar-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin: 0 auto 2rem;
+      border: 2px solid var(--rouge);
+      filter: grayscale(15%);
+      transition: filter 0.3s;
+    }
+
+    .avatar-photo:hover { filter: grayscale(0%); }
+
+    /* TRILOGY PROGRESS */
+    .trilogy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .tome-card {
+      border: 1px solid var(--bleu-nuit);
+      padding: 1.5rem 1.2rem;
+      transition: border-color 0.3s;
+    }
+
+    .tome-card.active { border-color: var(--rouge); }
+    .tome-card:hover { border-color: var(--rouge); }
+
+    .tome-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--rouge);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .tome-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      color: var(--blanc);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .tome-years {
+      font-size: 0.8rem;
+      color: var(--texte-dim);
+    }
+
+    .tome-status {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--rouge);
+      color: var(--rouge);
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 0.8rem;
+    }
+
+    .tome-status.soon {
+      border-color: var(--bleu-nuit);
+      color: var(--texte-dim);
+    }
+
+    @media (max-width: 600px) {
+      .trilogy-grid { grid-template-columns: 1fr; }
+      #hero-img { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">Fabrice Djimé</a>
+    <ul class="nav-links">
+      <li><a href="#synopsis">L'Œuvre</a></li>
+      <li><a href="public/univers/index.html">Univers</a></li>
+      <li><a href="public/atelier/index.html">L'Atelier</a></li>
+      <li><a href="#auteur-section">L'Auteur</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="private/dashboard/index.html" class="nav-private-link">● Privé</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <img src="assets/img/leviathan.jpg" alt="Le Nouveau Léviathan" id="hero-img"
+         onerror="this.style.display='none'">
+    <div class="hero-content fade-in">
+      <span class="hero-tagline">Trilogie — Hard Science-Fiction</span>
+      <h1 class="hero-title">Le Nouveau<br>Léviathan</h1>
+      <p class="hero-subtitle">Fabrice Djimé — 2065</p>
+      <blockquote class="hero-quote">
+        Homo homini lupus.
+        <cite>— Thomas Hobbes, Léviathan</cite>
+      </blockquote>
+      <a href="#synopsis" class="btn">Découvrir le roman</a>
+    </div>
+  </section>
+
+  <!-- SYNOPSIS -->
+  <section id="synopsis" class="pub-section">
+    <h2 class="fade-in">L'Œuvre</h2>
+    <p class="synopsis-text fade-in">Dans un monde ravagé par les crises climatiques, un État techno-totalitaire étend son pouvoir par le <strong>Neuro-Vaccin</strong> — une technologie qui supprime les émotions profondes et efface toute velléité de rébellion.</p>
+    <p class="synopsis-text fade-in">Au cœur de ce système, une résistance silencieuse cherche à préserver ce qui reste de l'âme humaine. Leur arme : la <strong>Singularité Émotionnelle</strong> — la capacité des machines à ressentir ce que les hommes ont oublié.</p>
+
+    <div class="trilogy-grid fade-in">
+      <div class="tome-card active">
+        <span class="tome-num">Tome I</span>
+        <div class="tome-title">Avènement</div>
+        <div class="tome-years">2045 — 2065</div>
+        <span class="tome-status">En cours</span>
+      </div>
+      <div class="tome-card">
+        <span class="tome-num">Tome II</span>
+        <div class="tome-title">Le Mur</div>
+        <div class="tome-years">2065 — 2070</div>
+        <span class="tome-status soon">À venir</span>
+      </div>
+      <div class="tome-card">
+        <span class="tome-num">Tome III</span>
+        <div class="tome-title">Renaissance</div>
+        <div class="tome-years">2070 — 2085</div>
+        <span class="tome-status soon">À venir</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERS / THÈMES -->
+  <section id="themes" class="pub-section">
+    <h2 class="fade-in">Univers</h2>
+    <div class="themes-grid">
+      <a href="public/univers/techno-totalitarisme.html" class="theme-item fade-in">Techno-totalitarisme</a>
+      <a href="public/univers/singularite-emotionnelle.html" class="theme-item fade-in">Singularité émotionnelle</a>
+      <a href="public/univers/conscience-synthetique.html" class="theme-item fade-in">Conscience synthétique</a>
+      <a href="public/univers/geopolitique-climatique.html" class="theme-item fade-in">Géopolitique climatique</a>
+      <a href="public/univers/controle-neurologique.html" class="theme-item fade-in">Contrôle neurologique</a>
+      <a href="public/univers/hard-science-fiction.html" class="theme-item fade-in">Hard Science-Fiction</a>
+    </div>
+  </section>
+
+  <!-- L'ATELIER -->
+  <section id="atelier" class="pub-section">
+    <h2 class="fade-in">L'Atelier</h2>
+    <p class="fade-in" style="margin-bottom: 2rem;">Carnets de construction du Nouveau Léviathan. Notes d'auteur, worldbuilding, philosophie et processus d'écriture.</p>
+    <div class="atelier-grid">
+      <a href="public/atelier/articles/genese-du-projet/index.html" class="atelier-card fade-in">
+        <span class="card-date">3 avril 2026</span>
+        <h3>Genèse du projet</h3>
+        <p>L'étincelle initiale. Pourquoi la hard SF, pourquoi ce monde, pourquoi maintenant.</p>
+      </a>
+      <a href="public/atelier/articles/le-neuro-vaccin/index.html" class="atelier-card fade-in">
+        <span class="card-date">4 avril 2026</span>
+        <h3>Le Neuro-Vaccin</h3>
+        <p>Soumission moléculaire. NV001, NV002 — la mécanique de l'oppression invisible.</p>
+      </a>
+      <a href="public/atelier/articles/chronologie-du-monde/index.html" class="atelier-card fade-in">
+        <span class="card-date">4 avril 2026</span>
+        <h3>Chronologie du monde</h3>
+        <p>De 2026 à 2065. Les fractures climatiques, politiques et biologiques qui ont rendu le régime possible.</p>
+      </a>
+    </div>
+    <div style="margin-top: 2rem;" class="fade-in">
+      <a href="public/atelier/index.html" class="btn">Entrer dans l'atelier</a>
+    </div>
+  </section>
+
+  <!-- AUTEUR -->
+  <section id="auteur-section" class="pub-section">
+    <h2 class="fade-in">L'Auteur</h2>
+    <div class="fade-in">
+      <img src="assets/img/fab_profil.jpg" alt="Fabrice Djimé" class="avatar-photo"
+           onerror="this.style.display='none'">
+      <p style="max-width: 600px; margin: 0 auto 1.5rem; text-align: center;">Fabrice Djimé explore les futurs possibles où technologie et pouvoir reconfigurent l'humanité. Son écriture s'ancre dans la rigueur scientifique, la philosophie et la profondeur des émotions humaines.</p>
+      <p style="max-width: 600px; margin: 0 auto; text-align: center; color: var(--texte-pale); font-style: italic;">Ancien enseignant d'anglais et de français, il travaille à l'intersection de la hard SF, de la philosophie de l'esprit et de la dystopie politique.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="pub-section">
+    <h2 class="fade-in">Contact</h2>
+    <p class="fade-in" style="margin-bottom: 2rem;">Pour toute demande, collaboration ou retour de lecture :</p>
+    <div class="fade-in">
+      <a href="mailto:webfab66@gmail.com" class="btn">Écrire un message</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Fabrice Djimé — Tous droits réservés &nbsp;|&nbsp;
+    <a href="private/dashboard/index.html">Espace privé</a></p>
+  </footer>
+
+  <button id="btn-top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
