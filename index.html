@@ -9,18 +9,15 @@
   <style>
     /* ── HERO PRINCIPAL ── */
     #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 6rem 2rem 4rem;
-      background-image: url('assets/img/leviathan.jpg');
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
+      padding: 0;
+    }
+
+    #hero-img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     #hero::before {
@@ -28,15 +25,25 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to bottom, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.75) 60%, rgba(10,10,15,0.95) 100%),
-        radial-gradient(ellipse at 50% 30%, rgba(200,51,74,0.10) 0%, transparent 60%);
+        linear-gradient(to bottom,
+          rgba(10,10,15,0.45) 0%,
+          rgba(10,10,15,0.20) 30%,
+          rgba(10,10,15,0.20) 65%,
+          rgba(10,10,15,0.85) 85%,
+          rgba(10,10,15,0.97) 100%),
+        radial-gradient(ellipse at 50% 20%, rgba(200,51,74,0.08) 0%, transparent 55%);
       pointer-events: none;
+      z-index: 1;
     }
 
     .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       text-align: center;
-      position: relative;
-      z-index: 1;
+      z-index: 2;
+      padding: 3rem 2rem 4rem;
     }
 
     .hero-tagline {
@@ -271,7 +278,7 @@
 
     @media (max-width: 600px) {
       .trilogy-grid { grid-template-columns: 1fr; }
-      #hero { background-position: center center; }
+      .hero-content { padding: 2rem 1.5rem 3rem; }
     }
   </style>
 </head>
@@ -292,6 +299,7 @@
 
   <!-- HERO -->
   <section id="hero">
+    <img src="assets/img/leviathan.jpg" alt="Le Nouveau Léviathan" id="hero-img">
     <div class="hero-content fade-in">
       <span class="hero-tagline">Trilogie — Hard Science-Fiction</span>
       <h1 class="hero-title">Le Nouveau<br>Léviathan</h1>
