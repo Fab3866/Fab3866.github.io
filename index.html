@@ -17,6 +17,10 @@
       position: relative;
       overflow: hidden;
       padding: 6rem 2rem 4rem;
+      background-image: url('assets/img/leviathan.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
     }
 
     #hero::before {
@@ -24,18 +28,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 50% 30%, rgba(200,51,74,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 80%, rgba(58,122,138,0.05) 0%, transparent 50%);
+        linear-gradient(to bottom, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.75) 60%, rgba(10,10,15,0.95) 100%),
+        radial-gradient(ellipse at 50% 30%, rgba(200,51,74,0.10) 0%, transparent 60%);
       pointer-events: none;
-    }
-
-    #hero-img {
-      width: 100%;
-      max-width: 480px;
-      display: block;
-      margin: 0 auto 3rem;
-      position: relative;
-      z-index: 1;
     }
 
     .hero-content {
@@ -276,7 +271,7 @@
 
     @media (max-width: 600px) {
       .trilogy-grid { grid-template-columns: 1fr; }
-      #hero-img { max-width: 320px; }
+      #hero { background-position: center center; }
     }
   </style>
 </head>
@@ -297,8 +292,6 @@
 
   <!-- HERO -->
   <section id="hero">
-    <img src="assets/img/leviathan.jpg" alt="Le Nouveau Léviathan" id="hero-img"
-         onerror="this.style.display='none'">
     <div class="hero-content fade-in">
       <span class="hero-tagline">Trilogie — Hard Science-Fiction</span>
       <h1 class="hero-title">Le Nouveau<br>Léviathan</h1>
