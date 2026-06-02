@@ -65,8 +65,12 @@
 
     /* ── CITATION HOBBES ── */
     .hobbes-quote {
+      position: absolute;
+      bottom: 3rem;
+      left: 0;
+      right: 0;
       text-align: center;
-      padding: 3.5rem 2rem 1rem;
+      z-index: 1;
     }
 
     .hobbes-quote blockquote {
@@ -74,6 +78,7 @@
       border-left: 2px solid var(--rouge);
       padding: 0.6rem 1.8rem;
       margin: 0;
+      text-align: left;
     }
 
     .hobbes-quote em {
@@ -304,15 +309,13 @@
     <div class="hero-action-block fade-in">
       <a href="#synopsis" class="btn">Découvrir le roman</a>
     </div>
+    <div class="hobbes-quote fade-in">
+      <blockquote>
+        <em>Homo homini lupus.</em>
+        <cite>— Thomas Hobbes, <em>Léviathan</em></cite>
+      </blockquote>
+    </div>
   </section>
-
-  <!-- CITATION HOBBES -->
-  <div class="hobbes-quote fade-in">
-    <blockquote>
-      <em>Homo homini lupus.</em>
-      <cite>— Thomas Hobbes, <em>Léviathan</em></cite>
-    </blockquote>
-  </div>
 
   <!-- SYNOPSIS -->
   <section id="synopsis" class="pub-section">
