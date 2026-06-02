@@ -35,9 +35,10 @@
     .hero-title-block {
       position: absolute;
       top: 5rem;
-      left: 4rem;
+      left: 0;
+      right: 0;
       z-index: 1;
-      text-align: left;
+      text-align: center;
     }
 
     .hero-action-block {
@@ -60,6 +61,36 @@
       text-shadow: 0 2px 40px rgba(200,51,74,0.3);
       line-height: 1.15;
       margin: 0;
+    }
+
+    /* ── CITATION HOBBES ── */
+    .hobbes-quote {
+      text-align: center;
+      padding: 3.5rem 2rem 1rem;
+    }
+
+    .hobbes-quote blockquote {
+      display: inline-block;
+      border-left: 2px solid var(--rouge);
+      padding: 0.6rem 1.8rem;
+      margin: 0;
+    }
+
+    .hobbes-quote em {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--texte-pale);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .hobbes-quote cite {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--texte-dim);
+      font-style: normal;
+      text-transform: uppercase;
     }
 
     /* ── SECTIONS ── */
@@ -268,12 +299,20 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-title-block fade-in">
-      <h1 class="hero-title">Le Nouveau<br>Léviathan</h1>
+      <h1 class="hero-title">Le Nouveau Léviathan</h1>
     </div>
     <div class="hero-action-block fade-in">
       <a href="#synopsis" class="btn">Découvrir le roman</a>
     </div>
   </section>
+
+  <!-- CITATION HOBBES -->
+  <div class="hobbes-quote fade-in">
+    <blockquote>
+      <em>Homo homini lupus.</em>
+      <cite>— Thomas Hobbes, <em>Léviathan</em></cite>
+    </blockquote>
+  </div>
 
   <!-- SYNOPSIS -->
   <section id="synopsis" class="pub-section">
