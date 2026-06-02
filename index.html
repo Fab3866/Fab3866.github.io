@@ -34,7 +34,7 @@
 
     .hero-title-block {
       position: absolute;
-      bottom: 4rem;
+      top: 5rem;
       left: 4rem;
       z-index: 1;
       text-align: left;
@@ -42,12 +42,12 @@
 
     .hero-action-block {
       position: absolute;
-      bottom: 4rem;
+      top: 5rem;
       right: 4rem;
       z-index: 1;
       text-align: right;
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
     }
 
     .hero-title {
@@ -244,8 +244,8 @@
 
     @media (max-width: 600px) {
       .trilogy-grid { grid-template-columns: 1fr; }
-      .hero-title-block { left: 1.5rem; bottom: 6rem; }
-      .hero-action-block { right: 1.5rem; bottom: 2rem; }
+      .hero-title-block { left: 1.5rem; top: 4.5rem; }
+      .hero-action-block { right: 1.5rem; top: 4.5rem; }
       .hero-title { font-size: clamp(1.6rem, 8vw, 2.5rem); }
     }
   </style>
