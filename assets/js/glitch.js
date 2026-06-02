@@ -22,7 +22,7 @@
   function triggerGlitch(hero, title) {
     activate(hero, title);
 
-    const duration = rand(80, 220);
+    const duration = rand(240, 320);
 
     setTimeout(() => {
       deactivate(hero, title);

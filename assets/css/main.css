@@ -273,8 +273,10 @@ body {
 }
 
 /* ── GLITCH EFFECT ── */
+
+/* Léger déplacement du hero + ligne de scan */
 #hero.is-glitching {
-  animation: glitch-hero 0.18s steps(4) forwards;
+  animation: glitch-hero 0.2s steps(4) forwards;
 }
 
 #hero.is-glitching::after {
@@ -291,23 +293,76 @@ body {
 }
 
 @keyframes glitch-hero {
-  0%   { transform: none;              filter: none; }
-  20%  { transform: translateX(-5px);  filter: hue-rotate(12deg) brightness(1.04); }
-  40%  { transform: translateX(4px) skewX(0.4deg); filter: hue-rotate(-8deg); }
-  60%  { transform: translateX(-2px);  filter: brightness(0.94); }
-  80%  { transform: translateX(2px);   filter: none; }
-  100% { transform: none;              filter: none; }
+  0%   { transform: none;             filter: none; }
+  25%  { transform: translateX(-4px); filter: hue-rotate(10deg) brightness(1.03); }
+  50%  { transform: translateX(3px) skewX(0.3deg); filter: hue-rotate(-6deg); }
+  75%  { transform: translateX(-2px); filter: brightness(0.95); }
+  100% { transform: none;             filter: none; }
+}
+
+/* ── GLITCH TITRE — appuyé et clairement intentionnel ── */
+.hero-title {
+  position: relative;
+}
+
+/* Couche rouge décalée (::before) */
+.hero-title::before,
+.hero-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  color: var(--blanc);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero-title.is-glitching {
-  animation: glitch-rgb 0.18s steps(3) forwards;
+  animation: glitch-title-base 0.28s steps(5) forwards;
 }
 
-@keyframes glitch-rgb {
-  0%   { text-shadow: 0 2px 40px rgba(200,51,74,0.3); }
-  30%  { text-shadow:  3px 0 rgba(200,51,74,0.85), -2px 0 rgba(58,180,210,0.45), 0 2px 40px rgba(200,51,74,0.3); }
-  60%  { text-shadow: -3px 0 rgba(200,51,74,0.85),  2px 0 rgba(58,180,210,0.45), 0 2px 40px rgba(200,51,74,0.3); }
-  100% { text-shadow: 0 2px 40px rgba(200,51,74,0.3); }
+.hero-title.is-glitching::before {
+  opacity: 1;
+  color: rgba(200, 51, 74, 0.9);
+  animation: glitch-title-red 0.28s steps(5) forwards;
+}
+
+.hero-title.is-glitching::after {
+  opacity: 1;
+  color: rgba(80, 200, 230, 0.75);
+  animation: glitch-title-cyan 0.28s steps(5) forwards;
+}
+
+@keyframes glitch-title-base {
+  0%   { transform: none;              clip-path: none; }
+  20%  { transform: translateX(2px);   clip-path: inset(15% 0 55% 0); }
+  40%  { transform: translateX(-3px);  clip-path: inset(55% 0 10% 0); }
+  60%  { transform: translateX(1px);   clip-path: inset(30% 0 35% 0); }
+  80%  { transform: translateX(-1px);  clip-path: none; }
+  100% { transform: none;              clip-path: none; }
+}
+
+@keyframes glitch-title-red {
+  0%   { transform: none;               clip-path: inset(0 0 100% 0); }
+  20%  { transform: translateX(-8px);   clip-path: inset(10% 0 50% 0); }
+  40%  { transform: translateX(7px);    clip-path: inset(50% 0 5%  0); }
+  60%  { transform: translateX(-5px);   clip-path: inset(25% 0 40% 0); }
+  80%  { transform: translateX(4px);    clip-path: inset(60% 0 15% 0); }
+  100% { transform: none;               clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes glitch-title-cyan {
+  0%   { transform: none;               clip-path: inset(0 0 100% 0); }
+  20%  { transform: translateX(6px);    clip-path: inset(40% 0 20% 0); }
+  40%  { transform: translateX(-6px);   clip-path: inset(5%  0 55% 0); }
+  60%  { transform: translateX(4px);    clip-path: inset(60% 0 8%  0); }
+  80%  { transform: translateX(-3px);   clip-path: inset(20% 0 45% 0); }
+  100% { transform: none;               clip-path: inset(0 0 100% 0); }
 }
 
 .card p {
