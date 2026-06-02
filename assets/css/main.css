@@ -365,6 +365,38 @@ body {
   100% { transform: none;               clip-path: inset(0 0 100% 0); }
 }
 
+/* ── BOUTON SON ── */
+#btn-sound {
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1.2rem;
+  z-index: 999;
+  background: transparent;
+  border: 1px solid rgba(200,51,74,0.35);
+  color: rgba(200,51,74,0.55);
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn-sound:hover {
+  border-color: var(--rouge);
+  color: var(--rouge);
+}
+
+#btn-sound.muted {
+  border-color: rgba(200,51,74,0.15);
+  color: rgba(200,51,74,0.2);
+}
+
+#btn-sound.muted::after {
+  content: ' ✕';
+  font-size: 0.55rem;
+}
+
 .card p {
   font-size: 0.9rem;
   color: var(--texte-dim);

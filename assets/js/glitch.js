@@ -22,6 +22,11 @@
   function triggerGlitch(hero, title) {
     activate(hero, title);
 
+    // Son de glitch synchronisé
+    if (window.leviathan && window.leviathan.playGlitch) {
+      window.leviathan.playGlitch();
+    }
+
     const duration = rand(240, 320);
 
     setTimeout(() => {
